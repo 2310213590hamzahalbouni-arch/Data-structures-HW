@@ -1,0 +1,45 @@
+Week 5 Homework — Shunting Yard Algorithm (Infix to Postfix Conversion)
+
+------------------------------------------------------------------------
+
+1.  What is the Shunting Yard Algorithm? • The Shunting Yard Algorithm
+    is a technique used to change mathematical expressions from Infix
+    form (such as a+b) into Postfix form (also called Reverse Polish
+    Notation). • It was created by Edsger Dijkstra. • This algorithm
+    relies on a stack to temporarily store operators and parentheses
+    while processing the expression.
+
+------------------------------------------------------------------------
+
+2.  How does it work? (Step-by-step) • Scan the expression from left to
+    right. • When the token is an operand (a number or variable), place
+    it directly in the output. • When the token is an operator (like +,
+    -, *, /): • Remove operators from the stack and send them to the
+    output if they have higher or equal priority. • Then place the
+    current operator onto the stack. • If a left parenthesis ( is found,
+    push it onto the stack. • If a right parenthesis ) is found, move
+    operators from the stack to the output until a left parenthesis (
+    appears, then remove the (. • Once the entire expression is
+    processed, move any remaining operators from the stack to the
+    output.
+
+------------------------------------------------------------------------
+
+3.  Example 1: ab+c • Read a → operand → output: a • Read → operator →
+    push * onto stack • Read b → operand → output: ab • Read + →
+    operator: • * has greater precedence → move * to output → output: ab
+    • push + onto stack • Read c → operand → output: abc • End of
+    expression → pop remaining operator + → output: ab*c+
+
+------------------------------------------------------------------------
+
+4.  Example 2: (a+b)c • Read ( → push onto stack • Read a → operand →
+    output: a • Read + → operator → push + onto stack • Read b → operand
+    → output: ab • Read ) → pop operators until ( → pop + → output: ab+
+    • Remove ( from stack • Read → operator → push * onto stack • Read c
+    → operand → output: ab+c • End of expression → pop remaining
+    operator * → output: ab+c*
+
+------------------------------------------------------------------------
+
+5.  Expected Output • For ab+c → abc+ • For (a+b)c → ab+c

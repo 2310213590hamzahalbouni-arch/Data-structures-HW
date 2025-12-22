@@ -1,0 +1,22 @@
+Week 11
+
+1.  How do we perform clustering in a graph? Clustering in graphs is
+    done by organizing nodes into groups where the connections within
+    each group are denser than the connections with other groups. This
+    process mainly follows two approaches:
+
+-   Agglomerative (Bottom-Up): Each node begins as its own cluster, and
+    similar nodes or clusters are gradually combined.
+-   Divisive (Top-Down): The graph starts as a single cluster and is
+    repeatedly divided into smaller clusters.
+
+2.  How are clusters separated? Clusters are distinguished by detecting
+    and cutting the edges that link different groups, often called
+    bridge edges. Common techniques include:
+
+-   Edge Betweenness: Removing edges that appear most frequently on
+    shortest paths between nodes.
+-   Modularity Optimization: Dividing the graph in a way that increases
+    internal connections while reducing external ones.
+-   Normalized Cuts: Applying matrix-based methods, such as the
+    Laplacian matrix, to divide the graph into evenly balanced parts.

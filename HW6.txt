@@ -1,0 +1,47 @@
+Week 6
+
+#include <stdio.h> #include <stdlib.h>
+
+/ Name: HAMZA HALBOUNI * ID:2310213590 Tree Shape Example: * 1 * /
+* 2 3 * /   /
+* 4 5 6 7 */
+
+// Pre-order Algorithm (Root -> Left -> Right) // 1. Check if the node
+is empty (NULL). // 2. Print the node value (Root). // 3. Go to the Left
+child (Recursively). // 4. Go to the Right child (Recursively).
+
+struct node { int val; struct node* left; struct node* right; };
+
+// Function to make a new node struct node* make_node(int v) { struct
+node* ptr = (struct node*)malloc(sizeof(struct node)); ptr->val = v;
+ptr->left = NULL; ptr->right = NULL; return ptr; }
+
+// The Traversal Function void print_preorder(struct node* root) { if
+(root == NULL) return;
+
+    printf("%d ", root->val);     // Step 1: Data
+    print_preorder(root->left);   // Step 2: Left
+    print_preorder(root->right);  // Step 3: Right
+
+}
+
+int main() { // 1. Create Root struct node* root = make_node(1);
+
+    // 2. Build Left Side
+    root->left = make_node(2);
+    root->left->left = make_node(4);
+    root->left->right = make_node(5);
+
+    // 3. Build Right Side
+    root->right = make_node(3);
+    root->right->left = make_node(6);
+    root->right->right = make_node(7);
+
+    // 4. Print Result
+    printf("Pre-order Result: ");
+    print_preorder(root);
+    printf("\n");
+
+    return 0;
+
+}
